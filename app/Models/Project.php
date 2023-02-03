@@ -23,7 +23,7 @@ class Project extends Model
 
     protected function getImageUrlAttribute()
     {
-        return $this->project_logo_img ? asset("storage/$this->project_logo_img") : null;
+        return $this->project_logo_img ? asset("storage/$this->project_logo_img") : 'https://via.placeholder.com/300x200/09f/fff.png';
     }
 
 }

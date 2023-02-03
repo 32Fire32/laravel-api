@@ -58,7 +58,12 @@
                     <tr>
                         <td>{{ $project->id }}</td>
                         <td>{{ $project->name_project }}</td>
-                        <td><a href="{{ route('admin.types.show', $project->type) }}">{{ $project->type->name }}</a></td>
+                        @if ($project->type)
+                            <td><a href="{{ route('admin.types.show', $project->type) }}">{{ $project->type->name }}</a>
+                            </td>
+                        @else
+                            <td>Nessuna Tipologia</td>
+                        @endif
                         <td>{{ $project->slug }}</td>
                         <td>{{ $project->client }}</td>
                         <td>{{ $project->shipped_at }}</td>

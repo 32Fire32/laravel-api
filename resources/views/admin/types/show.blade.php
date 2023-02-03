@@ -3,8 +3,9 @@
 @section('content')
     <div class="container text-center">
         <h1>{{ $type->name }}</h1>
+        <h4>Portfolios associati:</h4>
         @if ($type->projects->isNotEmpty())
-            <ul>
+            <ul class="list-unstyled">
                 @foreach ($type->projects as $project)
                     <li><a href="{{ route('admin.projects.show', $project) }}">{{ $project->name_project }}</a></li>
                 @endforeach

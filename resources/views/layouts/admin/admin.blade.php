@@ -60,28 +60,28 @@
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
+                                <a class="nav-link text-white {{ str_contains(Route::currentRouteName(), 'admin.dashboard') ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dashboard') }}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i>
                                     Dashboard
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }}"
+                                <a class="nav-link text-white {{ str_contains(Route::currentRouteName(), 'admin.projects') ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.projects.index') }}">
                                     <i class="fa-regular fa-folder-open"></i>
                                     I Progetti
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ (Route::currentRouteName() == 'admin.types.index' || Route::currentRouteName() == 'admin.projects.create' || Route::currentRouteName() == 'admin.projects.edit' || Route::currentRouteName() == 'admin.projects.show' ? 'bg-secondary' : '' || Route::currentRouteName() == 'admin.types.show') ? 'bg-secondary' : '' }}"
+                                <a class="nav-link text-white {{ str_contains(Route::currentRouteName(), 'admin.types') ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.types.index') }}">
                                     <i class="fa-solid fa-list"></i>
                                     Tipologie di progetto
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.technologies.index' ? 'bg-secondary' : '' }}"
+                                <a class="nav-link text-white {{ str_contains(Route::currentRouteName(), 'admin.technologies') ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.technologies.index') }}">
                                     <i class="fa-solid fa-list"></i>
                                     Tecnologie

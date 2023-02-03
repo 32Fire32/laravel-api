@@ -35,10 +35,11 @@ class ProjectController extends Controller
         ])
         ->orderBy('id', 'desc')
         ->paginate(10);
+
         
         return view('admin.projects.index', compact('projects'))->with('i', (request()->input('page',1)-1)*5);
         
-        return view('admin.projects.index', compact('projects'));
+        // return view('admin.projects.index', compact('projects'));
     }
 
     /**
@@ -86,6 +87,7 @@ class ProjectController extends Controller
         {
             $new_projects->technologies()->sync($data['technologies']);
         }
+        
 
         return redirect()->route('admin.projects.index')->with('message', "$new_projects->name_project creato con successo!");
     }
