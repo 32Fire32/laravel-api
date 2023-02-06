@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
-    protected $guarded = ['slug'];
+    protected $guarded = ['slug', 'technologies'];
     protected $appends = ['image_url'];
 
     public function type()
@@ -24,6 +24,10 @@ class Project extends Model
     protected function getImageUrlAttribute()
     {
         return $this->project_logo_img ? asset("storage/$this->project_logo_img") : 'https://via.placeholder.com/300x200/09f/fff.png';
+    }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
     }
 
 }

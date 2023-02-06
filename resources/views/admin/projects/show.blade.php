@@ -32,6 +32,22 @@
                 @endforeach
             @endif
         </div>
+        <div class="m-2">
+            @if ($project->comments->isNotEmpty())
+                <h3>Commenti:</h3>
+                @foreach ($project->comments as $comment)
+                    <h6>{{ $comment->name }}:</h6>
+                    <span>{{ $comment->content }}</span>
+                    <form action="{{ route('admin.comments.destroy', $comment) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Cancella il commento</button>
+                    </form>
+                @endforeach
+            @else
+                <h3>Non ci sono commenti</h3>
+            @endif
+        </div>
 
 
         <a href="{{ route('admin.projects.index') }}"class="btn btn-primary">Torna alla lista dei progetti</a>
