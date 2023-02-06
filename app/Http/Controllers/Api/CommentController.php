@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NewComment;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 use App\Models\Project;
+use Illuminate\Support\Facades\Mail;
 
 class CommentController extends Controller
 {
@@ -13,7 +15,7 @@ class CommentController extends Controller
 
     $request->validate([
         'name' => 'nullable|string|max:150',
-        'content' =>'required|string'
+        'content' =>'required|string',
     ]);
     
     $data = $request->all();
@@ -23,9 +25,13 @@ class CommentController extends Controller
         $new_comment->content = $data['content'];
         $new_comment->project_id = $project->id;
         $new_comment->save();
+        
+        if($new_comment)
+        {
+            Mail::to('info@boolfolio.com')->send(new NewComment($new_comment));
+        }
 
         return $new_comment;
-
 
 
     }
