@@ -5,31 +5,28 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use App\Models\Project;
 
 class CommentController extends Controller
 {
-    public function createComment($id, Request $request){
+    public function createComment(Project $project, Request $request){
 
-    try{
-            $name = $request->input('name');
-            $content = $request->input('content');
-
-            // Store the post in the database using Eloquent ORM
-            $new_comment = new Comment;
-            $new_comment->name = $name;
-            $new_comment->content = $content;
-            $new_comment->project_id = $id;
-            $new_comment->save();
-
-    return $content;
-
-        }
-        catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return response([
-                'error' => '404 comment not found'
-            ], 404);
-        }
+    $request->validate([
+        'name' => 'nullable|string|max:150',
+        'content' =>'required|string'
+    ]);
     
+    $data = $request->all();
+
+        $new_comment = new Comment();
+        $new_comment->name = $data['name'];
+        $new_comment->content = $data['content'];
+        $new_comment->project_id = $project->id;
+        $new_comment->save();
+
+        return $new_comment;
+
+
 
     }
 }

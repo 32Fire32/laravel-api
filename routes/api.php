@@ -23,4 +23,4 @@ Route::get('projects', [ProjectController::class, 'index']);
 
 Route::get('projects/{slug}', [ProjectController::class, 'show']);
 
-Route::post('comments/{project_id}', [CommentController::class, 'createComment']);
+Route::post('comments/{project}', [CommentController::class, 'createComment']);
