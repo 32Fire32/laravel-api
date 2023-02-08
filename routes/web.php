@@ -24,7 +24,7 @@ Route::get('/', function () {
 });
 
 // Tutte le rotte protette da autenticazione del backoffice
-Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+Route::middleware('auth', 'verified')->prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
@@ -36,5 +36,9 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
 
     Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
 });
+
+Route::get('/email/verify', function(){
+    return view('auth.verify.email');
+})->middleware('auth')->name('verification.notice');
 
 require __DIR__.'/auth.php';

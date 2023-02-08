@@ -24,7 +24,6 @@ class CommentController extends Controller
         $new_comment->name = $data['name'];
         $new_comment->content = $data['content'];
         $new_comment->project_id = $project->id;
-        $new_comment->name_project = $project->name_project;
         $new_comment->save();
         
         if($new_comment)

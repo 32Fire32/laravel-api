@@ -45,7 +45,7 @@ class NewComment extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.new-comment',
+            markdown: 'emails.new-comment',
         );
     }
 
