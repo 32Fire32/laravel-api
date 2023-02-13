@@ -37,8 +37,4 @@ Route::middleware('auth', 'verified')->prefix('admin')->name('admin.')->group(fu
     Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
 });
 
-Route::get('/email/verify', function(){
-    return view('auth.verify.email');
-})->middleware('auth')->name('verification.notice');
-
 require __DIR__.'/auth.php';
