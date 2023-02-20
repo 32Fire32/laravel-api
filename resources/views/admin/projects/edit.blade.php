@@ -10,7 +10,7 @@
             <div class="mb-3">
                 <label for="name_project" class="form-label">Nome del progetto*</label>
                 <input type="text" class="form-control @error('name_project') is-invalid @enderror" id="name_project"
-                    name="name_project" value="{{ old('name_project', $project->name_project) }}" required>
+                    name="name_project" value="{{ old('name_project', $project->name_project) }}">
             </div>
             @error('name_project')
                 <div class="alert alert-danger">{{ $message }} </div>
@@ -67,7 +67,7 @@
             <img id="output" width="100" class="mb-2"
                 @if ($project->project_logo_img) src='{{ asset("storage/$project->project_logo_img") }}' @endif />
             <div class="mb-3">
-                <label for="project_logo_img" class="form-label">Logo del progetto</label>
+                <label for="project_logo_img" class="form-label">Immagine del progetto</label>
                 <input type="file" class="form-control @error('project_logo_img') is-invalid @enderror"
                     id="project_logo_img" name="project_logo_img" value="{{ old('project_logo_img') }}"
                     onchange="loadFile(event)">

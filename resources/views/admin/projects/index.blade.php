@@ -22,13 +22,13 @@
                 title="Clicca qui per inserire un nuovo progetto" data-bs-trigger="hover">Nuovo</a>
         </div>
         @if (session('message'))
-            <div class="alert alert-success my-2">
+            <div class="alert alert-success my-2" id="alert-message">
                 {{ session('message') }}
             </div>
         @endif
         {{-- toast --}}
         @if (session('message'))
-            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toast-message">
                 <div id="liveToast" class="show toast" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="toast-header">
                         <strong class="me-auto">Attenzione!</strong>
@@ -104,10 +104,5 @@
                 @endforeach
             </tbody>
         </table>
-        <script>
-            $(document).ready(function() {
-                $('[data-bs-toggle="popover"]').popover();
-            });
-        </script>
     @endsection
 </div>

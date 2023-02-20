@@ -24,23 +24,22 @@ class ProjectController extends Controller
      */
     public function index(Request $request)
     {
-        // $projects = Project::all();
-
+        // $projects = Project::all()
         $projects = Project::where([
             ['name_project', '!=', Null],
-            [function($query) use ($request){
-                if(($term = $request->term)){
-                    $query->orWhere('name_project', 'LIKE', '%' . $term . '%')->get();
-                }
-            }]
+            // [function($query) use ($request){
+            //     if(($term = $request->term)){
+            //         $query->orWhere('name_project', 'LIKE', '%' . $term . '%')->get();
+            //     }
+            // }]
         ])
-        ->orderBy('id', 'desc')
+        ->orderBy('id', 'asc')
         ->paginate(10);
 
         
-        return view('admin.projects.index', compact('projects'))->with('i', (request()->input('page',1)-1)*5);
+        // return view('admin.projects.index', compact('projects'))->with('i', (request()->input('page',1)-1)*5);
         
-        // return view('admin.projects.index', compact('projects'));
+        return view('admin.projects.index', compact('projects'));
     }
 
     /**

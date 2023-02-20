@@ -6,7 +6,7 @@
             <h1>{{ $project->name_project }}</h1>
             @if ($project->project_logo_img)
                 <div>
-                    <img class="w-25" src="{{ asset("storage/$project->project_logo_img") }}"
+                    <img class="w-75" src="{{ asset("storage/$project->project_logo_img") }}"
                         alt="{{ $project->name_project }}">
                 </div>
             @endif

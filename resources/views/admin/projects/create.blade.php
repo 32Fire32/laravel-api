@@ -58,7 +58,7 @@
 
             <img id="output" width="100" class="mb-2" />
             <div class="mb-3">
-                <label for="project_logo_img" class="form-label">Logo del progetto</label>
+                <label for="project_logo_img" class="form-label">Immagine del progetto</label>
                 <input type="file" class="form-control @error('project_logo_img') is-invalid @enderror"
                     id="project_logo_img" name="project_logo_img" value="{{ old('project_logo_img') }}"
                     onchange="loadFile(event)">

@@ -32,12 +32,12 @@
 <body>
     <div id="app">
         <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2 shadow">
-            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">BoolFolio</a>
-            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button"
+            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">My Portfolio</a>
+            {{-- <button class="navbar-toggler position-absolute d-md-none collapsed" type="button"
                 data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> --}}
             {{-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search"
             aria-label="Search" /> --}}
             <div class="navbar-nav">
@@ -101,6 +101,7 @@
     {{-- preview image in form --}}
     <script type="text/javascript" src="{{ URL::asset('js_apps/preview_image.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js_apps/check.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js_apps/fade_out.js') }}"></script>
 
 </body>
 
